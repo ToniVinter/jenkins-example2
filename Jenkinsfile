@@ -9,7 +9,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                withMaven(maven : 'maven_3_5_0'){
+                    sh 'mvn test'
+                }
             }
         }
         stage('Deploy') {
